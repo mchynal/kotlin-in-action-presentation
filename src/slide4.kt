@@ -30,8 +30,8 @@ fun main(args: Array<String>) {
 
 class Tag(val tag: String) {
 
-    var attrs = listOf<String>()
-    var children = listOf<Tag>()
+    var attrs = mutableSetOf<String>()
+    var children = mutableListOf<Tag>()
 
     //TODO create(block)
     fun create(block: Tag.() -> Unit): Tag {
@@ -41,20 +41,18 @@ class Tag(val tag: String) {
 
     //TODO attr(name,value)
     fun attr(name: String, value: String) {
-        attrs = attrs.plus("""$name="$value"""")
+        attrs.add("""$name="$value"""")
     }
 
     //TODO child(tag,block)
     fun child(tagName: String, block: Tag.(Tag) -> Unit) {
         val t = Tag(tagName)
         block.invoke(t, t)
-        children = children.plus(t)
+        children.add(t)
     }
 
     //TODO toString
-    override fun toString(): String {
-        return "<$tag ${attrs.joinToString(" ")}>${childrenToString()}</$tag>"
-    }
+    override fun toString() = "<$tag ${attrs.joinToString(" ")}>${childrenToString()}</$tag>"
 
     private fun childrenToString() = if (children.isNotEmpty()) "\n${children.joinToString("\n")}\n" else ""
 

@@ -1,3 +1,5 @@
+//main, print, ;, typy,
+
 
 //TODO main, types
 fun main(args: Array<String>) {
@@ -8,7 +10,7 @@ fun main(args: Array<String>) {
 
 }
 
-//TODO render fun, fun as exp, string template
+//TODO print hello fun, fun as exp, string template
 fun hello(name: String) = println("Hello $name!!!")
 
 //TODO default params
