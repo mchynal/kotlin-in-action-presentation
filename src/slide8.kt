@@ -4,12 +4,13 @@ fun main(args: Array<String>) {
     println(Factory.create("a"))
     println(Factory.create(1.2))
 
-    Factory.box.create('c')
+    println(Factory.Companion)
+
 }
 
 //TODO companion, create, T
 class Factory{
-    companion object box{
+    companion object {
         fun <T> create(content: T) : Box<T>{
             return Box(content)
         }
@@ -17,8 +18,4 @@ class Factory{
 }
 
 //TODO Box<T>
-class Box<out T>(val content: T){
-    override fun toString(): String {
-        return "Box(content=$content)"
-    }
-}
+data class Box<Any>(val content: Any)

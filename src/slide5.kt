@@ -1,11 +1,11 @@
 fun main(args: Array<String>) {
 
-    println(maybeNull(1)?.length)
+//    println(maybeNull(11)?.length)
 
-    println(maybeNull(1).orEmpty().length)
+    println(maybeNull(11).orEmpty().length)
 
-    println(maybeNull(1)!!.length)
+    println(maybeNull(11)!!.length)
 
 }
 
-fun maybeNull(int: Int) = if (int > 10) "ok" else null
+fun maybeNull(int: Int) : String?  = if (int > 10) "okokokok" else null

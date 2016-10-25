@@ -1,9 +1,7 @@
 
 fun main(args: Array<String>) {
 
-    MyValidator().execute {
-        it.validDate()
-        it.validNum()
+    MyValidator().execute { v ->
     }
 }
 
